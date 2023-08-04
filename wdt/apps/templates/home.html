@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="grid-container">
+    <div class="section"><a class="remove-underline" href="{% url 'ttt' %}">Tic Tac Toe</a></div>
+    <div class="section"><a class="remove-underline" href="{% url 'calculator' %}">Calculator</a></div>
+    <div class="section"><a class="remove-underline" href="{% url 'rps' %}">Rock Paper Scissors</a></div>
+    <div class="section"><a class="remove-underline" href="{% url 'tdl' %}">To Do List</a></div>
+  </div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background:linear-gradient(to left,lightyellow,orange,lightpink);
+        padding: 0;
+      }
+      
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 300px);
+        gap: 40px;
+        max-width: 1150px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      
+      .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightblue;
+        color: black;
+        font-size: 24px;
+        border-radius: 10px;
+      }
+</style>
+
+{% endblock %}

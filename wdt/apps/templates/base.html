@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+        .remove-underline {
+      text-decoration: none;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      nav {
+        background-color: lightblue;
+        color: black;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      
+      nav ul li {
+        margin-right: 20px;
+      }
+      
+      nav ul li a {
+        color: black;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      
+      nav ul li a:hover {
+        background-color: #555;
+        color:white;
+      }
+      
+      @media screen and (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav .logo {
+          margin-bottom: 10px;
+        }
+        nav ul li {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+      
+
+
+    
+
+      
+      {% comment %} tic tac toe {% endcomment %}
+
+
+      {% comment %} rock paper scissors {% endcomment %}
+      
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background-color: #f0f0f0;
+      }
+
+      {% comment %} calculator {% endcomment %}
+
+
+
+      {% comment %} Guess the number {% endcomment %}
+
+
+
+</style>
+<body>
+    <nav>
+        <div class="logo"><a style="color:black;" class="remove-underline" href="{% url 'home' %}">Home</a></div>
+        <ul>
+          <li><a href="{% url 'about' %}">About</a></li>
+          {% if user.is_anonymous %}
+          <li><a href="{% url 'login' %}">Log In</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          {% else %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+        {% block content %}
+  
+  
+        {% endblock %}
+  
+  <script>
+    const display = document.getElementById('display');
+    let currentValue = '0';
+
+    function updateDisplay() {
+      display.textContent = currentValue;
+    }
+
+    function appendValue(value) {
+      if (currentValue === '0' && value !== '.') {
+        currentValue = value;
+      } else {
+        currentValue += value;
+      }
+      updateDisplay();
+    }
+
+    function calculate() {
+      try {
+        currentValue = eval(currentValue).toString();
+        updateDisplay();
+      } catch (error) {
+        currentValue = 'Error';
+        updateDisplay();
+      }
+    }
+
+    function clearDisplay() {
+      currentValue = '0';
+      updateDisplay();
+    }
+
+    function deleteLast() {
+      if (currentValue.length === 1) {
+        currentValue = '0';
+      } else {
+        currentValue = currentValue.slice(0, -1);
+      }
+      updateDisplay();
+    }
+
+
+
+
+    
+</script>
+  
+</body>
+</html>

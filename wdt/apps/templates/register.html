@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+            <div class="container_reg">
+                <h1 class="h1_reg">Registration Form</h1>
+                <form class="form_reg" method="post">
+                    {% csrf_token %}
+
+                  <div class="form-group">
+                    <label class="label_reg" for="username">Username:</label><br>
+                    <input class="input_reg" type="text" id="username" name="username" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="label_reg" for="firstName">First Name:</label><br>
+                    <input class="input_reg" type="text" id="first_name" name="first_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="label_reg" for="email">Email:</label>
+                    <input class="input_reg" type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="label_reg" for="password">Password:</label>
+                    <input class="input_reg" type="password" id="password" name="password" required>
+                  </div>
+                  <p><input class="input_reg" type="submit" value="Create my account"></p>
+                  <h3 class="h1_reg">Already have an account , <a class="remove-underline" href="{% url 'login' %}">Log In ... </a></h1>
+
+                </form>
+              </div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container_reg {
+        width: 400px;
+        margin-top: 75px;
+        margin-left: 550px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      
+      .h1_reg {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      
+      .form_reg {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .label_reg {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      
+      .input_reg {
+        width: 92%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+      }
+      
+</style>
+
+{% endblock %}

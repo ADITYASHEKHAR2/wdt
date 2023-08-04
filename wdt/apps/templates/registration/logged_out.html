@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div>
+
+            <h1 class="h1_reg">Logged out</h1>
+            <h3 class="h1_reg">
+                You have been successfully logged out.
+                You can <b><a class="remove-underline" href="{% url 'login' %}">log-in </a><b>
+            </h3>
+
+        </div>
+
+{% endblock %}

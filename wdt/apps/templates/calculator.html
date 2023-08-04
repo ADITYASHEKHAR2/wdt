@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1 class="h1_reg">Calculator</h1>
+<div class="calculator" id="calculator">
+  <div class="display" id="display">0</div>
+  <div class="button_calc" onclick="clearDisplay()"><h2>C</h2></div>
+  <div class="button_calc" onclick="deleteLast()"><h2>DEL</h2></div>
+  <div class="button_calc" onclick="appendValue('/')"><h2>/</h2></div>
+  <div class="button_calc" onclick="appendValue('7')"><h2>7</h2></div>
+  <div class="button_calc" onclick="appendValue('8')"><h2>8</h2></div>
+  <div class="button_calc" onclick="appendValue('9')"><h2>9</h2></div>
+  <div class="button_calc" onclick="appendValue('4')"><h2>4</h2></div>
+  <div class="button_calc" onclick="appendValue('5')"><h2>5</h2></div>
+  <div class="button_calc" onclick="appendValue('6')"><h2>6</h2></div>
+  <div class="button_calc" onclick="appendValue('1')"><h2>1</h2></div>
+  <div class="button_calc" onclick="appendValue('2')"><h2>2</h2></div>
+  <div class="button_calc" onclick="appendValue('3')"><h2>3</h2></div>
+  <div class="button_calc" onclick="appendValue('-')"><h2>-</h2></div>
+  <div class="button_calc" onclick="appendValue('*')"><h2>*</h2></div>
+  <div class="button_calc" onclick="appendValue('.')"><h2>.</h2></div>
+  <div class="button_calc" onclick="appendValue('+')"><h2>+</h2></div>
+  <div class="button_calc" onclick="appendValue('0')"><h2>0</h2></div>
+  <div class="button_calc" onclick="calculate()"><h2>=</h2></div>
+</div>
+<style>
+    .h1_reg {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+body {
+    font-family: Arial, sans-serif;
+    background-color:lightyellow;
+  }
+
+  .calculator {
+    background-color:lightblue;
+    margin-top:100px;
+    margin-left:600px;
+    width: 330px;
+    border: 3px solid black;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 7px;
+  }
+
+  .display {
+    background-color:lightyellow;
+    grid-column: 1 / span 3;
+    text-align: right;
+    padding: 5px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+  .button_calc {
+    background-color:lightyellow;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+</style>
+
+{% endblock %}
